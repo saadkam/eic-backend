@@ -11,4 +11,4 @@ const FormulaSchema = new mongoose.Schema({
   ingredients: [IngredientSchema]
 });
 
-module.exports = mongoose.Schema('Formula', FormulaSchema);
+module.exports = mongoose.model('Formula', FormulaSchema);
