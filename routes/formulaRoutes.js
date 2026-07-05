@@ -4,6 +4,7 @@ const formulaController = require('../controllers/formulaController');
 
 router.get('/', formulaController.getAllFormulas);
 router.post('/scale', formulaController.scaleFormula);
+router.post('/scale-adhoc', formulaController.scaleAdHocFormula);
 router.post('/', formulaController.createFormula);
 
 module.exports = router;

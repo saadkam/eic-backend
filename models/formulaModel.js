@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const IngredientSchema = new mongoose.Schema({
-  name: String,
-  ratio: Number // e.g., 0.60 for 60% of the mix, or parts by weight
+  itemId: { type: mongoose.Schema.Types.ObjectId, ref: 'Item', required: true },
+  ratio: { type: Number, required: true } // e.g., 0.60 for 60% of total batch weight
 });
 
 const FormulaSchema = new mongoose.Schema({
@@ -11,4 +11,4 @@ const FormulaSchema = new mongoose.Schema({
   ingredients: [IngredientSchema]
 });
 
-module.exports = mongoose.model('Formula', FormulaSchema);
+module.exports = mongoose.model('FormulaModel', FormulaSchema);

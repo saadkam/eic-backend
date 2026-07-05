@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); // New requirement added here
 const formulaRoutes = require('./routes/formulaRoutes');
-
+const partyRoutes = require('./routes/partyRoutes');
 const app = express();
 
 // Middleware configuration
@@ -16,8 +16,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/eic_db')
     .then(() => console.log('Successfully connected to MongoDB via Mongoose!'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-// Register Modular Routes
+// orginise routes into a seperate file like index rout or api routs and only 
+// have one rout directed inthis file to the file with all others
 app.use('/api/formulas', formulaRoutes);
+app.use('/api/party', partyRoutes);
 
 app.listen(PORT, () => {
     console.log(`EIC Modular Backend running on port ${PORT}`);
