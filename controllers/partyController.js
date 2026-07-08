@@ -1,6 +1,7 @@
 const Party = require('../models/PartyModel');
 const mongoose = require('mongoose');
 
+
 exports.getAllParties = async (req, res) => {
     try {
         const PartiesFromDb = await Party.find();

@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const PartyController = require('../controllers/partyController');
+const {seedDatabase} = require('../controllers/seeder');
 const mongoose = require('mongoose');
 
 // Helper wrapper to safely load models with the Model suffix
 const PartyModel = mongoose.model('PartyModel');
 
-router.get('/', PartyController.getAllParties);
+router.get('/seed-5', seedDatabase);
 router.post('/new-party', PartyController.newParty);
-
-
-
+router.get('/', PartyController.getAllParties);
 
 /**
  * @route   GET /api/ledger/balances
@@ -152,5 +151,7 @@ router.get('/balances/:partyId', async (req, res) => {
     });
   }
 });
+
+
 
 module.exports = router;
